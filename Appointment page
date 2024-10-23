@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .appointment-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin: 15px 0;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .form-group input.error {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: 5px;
+        }
+        .time-slot-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .time-slot {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .time-slot.accepted {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .time-slot.rejected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .time-slot.selected {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="appointment-container">
+        <h1>Book an Appointment</h1>
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" required>
+                <div id="phoneError" class="error-message">Please enter a valid phone number (only numbers allowed).</div>
+            </div>
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Haircut">Haircut</option>
+                    <option value="Facial">Facial</option>
+                    <option value="Manicure">Manicure</option>
+                    <option value="Pedicure">Pedicure</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Date</label>
+                <input type="date" id="date" required>
+            </div>
+            <div class="form-group">
+                <label>Time Slots</label>
+                <div class="time-slot-container" id="timeSlots"></div>
+                <input type="hidden" id="selectedTime" required>
+                <div id="timeError" class="error-message">Please select a valid time slot.</div>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    <script>
+        const timeSlots = [
+            "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", 
+            "12:00 PM", "12:30 PM", "1:00 PM", "1:30 PM", 
+            "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", 
+            "4:00 PM", "4:30 PM", "5:00 PM"
+        ];
+        function getRandomStatus() {
+            const random = Math.random();
+            return random < 0.8 ? 'Accepted' : 'Rejected';
+        }
+        const timeSlotsContainer = document.getElementById('timeSlots');
+        let selectedTime = "";
+        function renderTimeSlots() {
+            timeSlots.forEach(slot => {
+                const button = document.createElement('button');
+                button.textContent = slot;
+                const status = getRandomStatus(); 
+                button.classList.add('time-slot', status.toLowerCase());
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    if (status === 'Rejected') {
+                        alert("This time slot is unavailable. Please select another slot.");
+                        return;
+                    }
+                    const previouslySelected = document.querySelector('.time-slot.selected');
+                    if (previouslySelected) {
+                        previouslySelected.classList.remove('selected');
+                    }
+                    button.classList.add('selected');
+                    selectedTime = slot;
+                    document.getElementById('selectedTime').value = selectedTime;
+                });
+
+                timeSlotsContainer.appendChild(button);
+            });
+        }
+        renderTimeSlots();
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const phoneValue = phoneInput.value;
+            const timeError = document.getElementById('timeError');
+            if (!/^\d+$/.test(phoneValue)) {
+                phoneInput.classList.add('error');
+                phoneError.style.display = 'block';
+                return; 
+            } else {
+                phoneInput.classList.remove('error');
+                phoneError.style.display = 'none';
+            }
+            if (!selectedTime) {
+                timeError.style.display = 'block';
+                return;
+            } else {
+                timeError.style.display = 'none';
+            }
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            sessionStorage.setItem('name', name);
+            sessionStorage.setItem('phone', phoneValue);
+            sessionStorage.setItem('service', service);
+            sessionStorage.setItem('date', date);
+            sessionStorage.setItem('time', selectedTime);
+            window.location.href = 'confirmation.html'; 
+        });
+    </script>
+</body>
+</html>
