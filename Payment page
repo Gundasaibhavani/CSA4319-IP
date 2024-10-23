@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .payment-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .payment-options {
+            margin-bottom: 20px;
+        }
+        .payment-options label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .payment-options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h1>Complete Your Payment</h1>
+        <form id="payment-form">
+            <div class="payment-options">
+                <label>
+                    <input type="radio" name="payment-option" value="credit-card" required>
+                    Credit Card
+                </label>
+                <label>
+                    <input type="radio" name="payment-option" value="paypal">
+                    PayPal
+                </label>
+                <label>
+                    <input type="radio" name="payment-option" value="stripe">
+                    Stripe
+                </label>
+            </div>
+            <button type="submit" class="btn">Submit Payment</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            window.location.href = 'admin.html';
+        });
+    </script>
+</body>
+</html>
