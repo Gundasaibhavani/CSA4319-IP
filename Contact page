@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Beauty Parlour</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://market-resized.envatousercontent.com/previews/files/231883799/01_index.jpg?w=590&h=300&cf_fit=crop&crop=top&format=auto&q=85&s=e2376fd324b8e1319575476205c7b520aeb45ae128544fbb344415366c7d36b0'); /* Path to your background image */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height: 100vh; /* Full height viewport */
+            color: white; /* Text color for better readability */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section#contact {
+            padding: 50px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent overlay to make text more readable */
+            max-width: 600px;
+            margin: 0 auto; /* Center the section */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        h2 {
+            font-size: 36px;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between form elements */
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Light background for input fields */
+        }
+
+        textarea {
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        button {
+            padding: 10px;
+            background-color: #ff7f7f;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff5252;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Footer with transparency */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="appointment.html">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Beauty Parlour. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
