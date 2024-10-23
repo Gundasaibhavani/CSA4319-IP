@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Beauty Parlour</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Navigation styling */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #444;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content styling */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            color: #333;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .container .hours {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .container .hours h3 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .container .hours ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 18px;
+            color: #444;
+        }
+
+        .container .hours ul li {
+            margin: 5px 0;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <h1>About Beauty Parlour</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="appointment.html">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <div class="container">
+        <h2>Welcome to Our Beauty Parlour</h2>
+        <p>
+            At Beauty Parlour, we pride ourselves on offering top-notch beauty services that are designed 
+            to help you feel your best. Our team of professional stylists and beauticians are experts in 
+            their fields, from hair care to skincare, manicures, pedicures, and more.
+        </p>
+        <p>
+            We believe that beauty is not just about appearances but also about how you feel on the inside. 
+            Our tranquil atmosphere, personalized services, and premium beauty products ensure that you not 
+            only look fabulous but also leave feeling rejuvenated and refreshed. Whether you're looking for 
+            a quick trim or a full makeover, we have something special for everyone.
+        </p>
+
+        <!-- Timings section -->
+        <div class="hours">
+            <h3>Our Timings</h3>
+            <ul>
+                <li>Monday - Friday: 9:00 AM - 8:00 PM</li>
+                <li>Saturday: 9:00 AM - 6:00 PM</li>
+                <li>Sunday: Closed</li>
+                <li>Public Holidays: Closed</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 Beauty Parlour. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
