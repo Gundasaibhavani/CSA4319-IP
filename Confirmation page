@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .confirmation-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .appointment-details {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .appointment-details p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .appointment-details span {
+            font-weight: bold;
+            color: #333;
+        }
+        .status {
+            font-size: 20px;
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status.accepted {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.rejected {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status.waiting {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .payment-link {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .payment-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <h1>Appointment Confirmed</h1>
+        <p>Thank you for booking your appointment!</p>
+        <div class="appointment-details">
+            <p><span>Name:</span> <span id="name"></span></p>
+            <p><span>Phone Number:</span> <span id="phone"></span></p>
+            <p><span>Service:</span> <span id="service"></span></p>
+            <p><span>Date:</span> <span id="date"></span></p>
+            <p><span>Time Slot:</span> <span id="time"></span></p>
+        </div>
+        <!-- Status of the appointment -->
+        <div id="status" class="status"></div>
+        <!-- Payment link, hidden initially -->
+        <a href="payment.html" id="payment-link" class="payment-link" style="display: none;">Proceed to Payment</a>
+        <a href="index.html" class="btn">Back to Home</a>
+    </div>
+    <script>
+        const name = sessionStorage.getItem('name');
+        const phone = sessionStorage.getItem('phone');
+        const service = sessionStorage.getItem('service');
+        const date = sessionStorage.getItem('date');
+        const time = sessionStorage.getItem('time');
+        document.getElementById('name').textContent = name;
+        document.getElementById('phone').textContent = phone;
+        document.getElementById('service').textContent = service;
+        document.getElementById('date').textContent = date;
+        document.getElementById('time').textContent = time;
+        function isValid(name, phone, service, date, time) {
+            if (!name || name.length < 3) return false;
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) return false;
+            if (!service) return false;
+            if (!date || !time) return false;
+            return true;
+        }
+        const statusElement = document.getElementById('status');
+        if (isValid(name, phone, service, date, time)) {
+            statusElement.textContent = 'Status: Accepted';
+            statusElement.classList.add('accepted');
+            document.getElementById('payment-link').style.display = 'inline-block';
+        } else {
+            statusElement.textContent = 'Status: Rejected';
+            statusElement.classList.add('rejected');
+        }
+    </script>
+</body>
+</html>
