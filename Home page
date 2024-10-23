@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Parlour Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Full background image settings */
+        body {
+            background-image: url('https://t4.ftcdn.net/jpg/06/56/53/19/240_F_656531936_xBVaKNxrt6sy4nnDutkl6KNglQRk1mQw.jpg'); /* Path to your background image */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height: 100vh; /* Full height viewport */
+            color: white; /* Text color for better readability */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        section#home {
+            padding: 50px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent overlay to make text more readable */
+        }
+
+        section#home h2 {
+            font-size: 36px;
+            color: white;
+        }
+
+        section#home p {
+            font-size: 20px;
+            color: #ddd;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #ff7f7f;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #ff5252;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Footer with transparency */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <h1>Welcome to Beauty Parlour</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li> <!-- Link to Home -->
+                <li><a href="aboutus.html">About Us</a></li> <!-- Link to About Us -->
+                <li><a href="contact.html">Contact Us</a></li> <!-- Link to Contact Us -->
+                <li><a href="appointment.html">Book Appointment</a></li> <!-- Link to Book Appointment -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <section id="home">
+        <h2>Your Beauty, Our Passion</h2>
+        <p>We offer a wide range of beauty services designed to help you look and feel your best. Book your appointment today and experience the ultimate beauty care!</p>
+
+        <a href="aboutus.html" class="btn">Learn More About Us</a> <!-- Button to About Us -->
+        <a href="contact.html" class="btn">Learn More About Us</a> <!-- Button to About Us -->
+        <a href="home.html" class="btn">Learn More About Us</a> <!-- Button to About Us -->
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Beauty Parlour. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
